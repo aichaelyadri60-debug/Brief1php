@@ -1,0 +1,120 @@
+/* ------------- RESET ------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: #F7F9FC;
+}
+.page-container {
+    max-width: 700px;
+    margin: 80px auto;
+    text-align: center;
+}
+
+.page-container h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #1B2A4A;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #5F6C8E;
+    font-size: 1rem;
+    margin-bottom: 30px;
+}
+
+.form-card {
+    background: white;
+    padding: 40px;
+    max-width: 650px;
+    margin: auto;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #1B2A4A;
+    font-size: 0.95rem;
+    text-align: left;
+}
+
+input[type="text"],
+textarea,
+select,
+input[type="file"] {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid #D5DBE7;
+    background: #F5F7FB;
+    font-size: 1rem;
+    color: #1B2A4A;
+    transition: 0.25s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #4A74FF;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(74, 116, 255, 0.25);
+    outline: none;
+}
+
+textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+.btn-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.btn-save {
+    flex: 1;
+    background: #4A74FF;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.btn-save:hover {
+    background: #2e56f5;
+    transform: translateY(-2px);
+}
+
+/* Cancel Button */
+.btn-cancel {
+    flex: 1;
+    text-align: center;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 1px solid #D5DBE7;
+    color: #4A74FF;
+    background: white;
+    text-decoration: none;
+    transition: 0.25s;
+}
+
+.btn-cancel:hover {
+    background: #eef2ff;
+}

@@ -5,21 +5,23 @@ if ($action == "list") {
     $courses = allcourses();
 }
 
+if ($action == "store" && $_SERVER['REQUEST_METHOD'] === 'POST') {
 
-if ($action == "store") {
-    $title =$_POST["title"] ;
-    $description =$_POST["description"] ;
-    $level =$_POST["level"] ;
-    move_uploaded_file($_FILES["imagecourse"]["tmp_name"], "C:\\laragon\\www\\briefphp\\course.png");
-    $courses = stockercourses($title ,$description ,$level);
+    $title = $_POST["title"];
+    $description = $_POST["description"];
+    $level = $_POST["level"];
+    if (!empty($_FILES['imagecourses']['name'])) {
+
+        $imageName = time() . "_" . basename($_FILES['imagecourses']['name']);
+        $targetDir = "./images/";
+
+        move_uploaded_file($_FILES["imagecourses"]["tmp_name"], $targetDir . $imageName);
+    }
+
+    stockercourses($title, $description, $level, $imageName);
+
     header("Location: index.php?page=courses&action=list");
     exit;
-}
-
-
-if($action =="delete"){
-    $id =$_POST[$id];
-    $courses = deletecourses($id);
 }
 
 ?>

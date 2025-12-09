@@ -7,7 +7,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="./assets/courses.css">
 </head>
-
 <body>
     <?php require_once __DIR__ . '/../layout/header.html'; ?>
 
@@ -24,6 +23,7 @@
         <table>
             <tr>
                 <th>ID</th>
+                 <th style="width:100px ; height:100px;">image</th>
                 <th>Titre</th>
                 <th>niveau</th>
                 <th>Description</th>
@@ -42,6 +42,7 @@
 
                 <tr class="trrr">
                     <td><?= $c['id'] ?></td>
+                    <td><img src="./images/<?= $c['image'] ?>" style="width:50px; height:50px;"/></td>
                     <td><?= $c['title'] ?></td>
                     <td>
                         <span class="badge <?= $class ?>">

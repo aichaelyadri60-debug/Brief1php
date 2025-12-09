@@ -1,0 +1,145 @@
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: #f7f7f7;
+    margin: 0;
+    padding: 40px;
+    color: #333;
+}
+
+.course-manager {
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* Header */
+.cm-header {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.cm-title-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cm-title-left h2 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.icon-book {
+    font-size: 26px;
+}
+
+/* Back link */
+.cm-back {
+    display: inline-block;
+    margin: 15px 0;
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.cm-course-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.cm-subtitle {
+    margin-top: 0;
+    color: #777;
+}
+
+/* Add button */
+.cm-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin: 25px 0;
+}
+
+.btn-add {
+    background: #2563eb;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-add:hover {
+    background: #1e4ecb;
+}
+
+/* Sections list */
+.cm-section-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.section-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 18px 22px;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.section-left {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.section-number {
+    background: #e7f0ff;
+    color: #2563eb;
+    font-size: 14px;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.section-card h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.date {
+    margin: 3px 0 0;
+    color: #999;
+    font-size: 13px;
+}
+
+.section-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #555;
+}
+
+.icon-btn:hover {
+    color: #000;
+}
+
+.cm-footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #aaa;
+    font-size: 13px;
+}

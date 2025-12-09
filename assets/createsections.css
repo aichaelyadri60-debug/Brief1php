@@ -1,0 +1,126 @@
+
+/* GLOBAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    background: #f5f6f8;
+}
+
+/* NAVBAR */
+.navbar {
+    background: #ffffff;
+    padding: 15px 40px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-icon {
+    font-size: 26px;
+}
+
+.nav-title {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* MAIN CONTENT */
+.page-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.page-title {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.page-subtitle {
+    margin-top: 5px;
+    color: #777;
+}
+
+/* FORM CARD */
+.form-container {
+    background: #fff;
+    width: 100%;
+    padding: 40px;
+    margin-top: 30px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    text-align: left;
+}
+
+/* FORM ELEMENTS */
+.form-label {
+    font-weight: 600;
+    display: block;
+    margin: 20px 0 6px;
+}
+
+.form-input, 
+.form-textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    font-size: 15px;
+    background: #fafafa;
+}
+
+.form-textarea {
+    height: 180px;
+    resize: none;
+}
+
+/* BUTTONS */
+.btn-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.btn {
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    border: none;
+}
+
+.btn-save {
+    background: #2563eb;
+    color: white;
+}
+
+.btn-save:hover {
+    background: #1e4fd1;
+}
+
+.btn-cancel {
+    background: #e9ecef;
+    color: #333;
+}
+
+.btn-cancel:hover {
+    background: #d7d9db;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 30px;
+    color: #999;
+    margin-top: 80px;
+}

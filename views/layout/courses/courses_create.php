@@ -19,7 +19,7 @@
 
         <div class="form-card">
 
-            <form action="index.php?page=courses&action=store" method="POST">
+            <form action="index.php?page=courses&action=store" method="POST" enctype="multipart/form-data">
 
                 <label>Course Title</label>
                 <input type="text" name="title" placeholder="Enter course title" required>
@@ -28,7 +28,7 @@
                 <textarea name="description" placeholder="Describe what students will learn" required></textarea>
 
                 <label>image course</label>
-                <input id="start" name="imagecourse" type="file" />
+                <input name="imagecourses" type="file" />
 
                 <label>Level</label>
                 <select name="level">
