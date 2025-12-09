@@ -36,5 +36,23 @@ function deletesection($id ,$idsection){
 
 
 
+function modifiersection($id,$idsection,$ContentS ,$titleS){
+    global $connexion ;
+    $id =intval($id);
+    $idsection =intval($idsection);
+    $ContentS =mysqli_real_escape_string($connexion ,$ContentS);
+    $titleS =mysqli_real_escape_string($connexion ,$titleS);
+    $sql ="UPDATE sections set titleS='$titleS' ,content ='$ContentS' WHERE id=$idsection AND course_id =$id";
+    return mysqli_query($connexion ,$sql);
+}
+
+function getSectionById($idsection){
+    global $connexion ;
+    $idsection =intval($idsection);
+    $sql ="SELECT * FROM sections WHERE id = $idsection";
+    $result =mysqli_query($connexion ,$sql);
+    return mysqli_fetch_assoc($result);
+}
+
 
 ?>

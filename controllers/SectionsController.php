@@ -29,6 +29,24 @@ if($action =='delete'){
     exit;
 }
 
+if ($action == 'edit' && $_SERVER['REQUEST_METHOD'] === 'GET') {
+    $id = $_GET['id'];
+    $idsection = $_GET['idsection'];
+    $sectiondata = getSectionById($idsection);
+}
+
+if ($action == 'edit' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+    $id = $_GET['id'];
+    $idsection = $_GET['idsection'];
+    $title = $_POST['titleS'];
+    $ContentS = $_POST['ContentS'];
+
+    modifiersection($id, $idsection, $ContentS, $title);
+
+    header("Location: index.php?page=sections&id=$id&action=list");
+    exit;
+}
+
 
 
 ?>
