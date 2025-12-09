@@ -32,4 +32,35 @@ function deletecourses($id) {
     $sql = "DELETE FROM courses WHERE id = $id";
     return mysqli_query($connexion, $sql);
 }
+
+
+
+
+function editcourse($id, $title, $desc, $niveau) {
+    global $connexion;
+
+    $sql = "UPDATE courses 
+            SET title='$title',
+                DescriptionC='$desc',
+                level='$niveau'
+            WHERE id=$id";
+
+    return mysqli_query($connexion, $sql);
+}
+
+function updateImageCourse($id, $image) {
+    global $connexion;
+    $image = mysqli_real_escape_string($connexion, $image);
+    $sql = "UPDATE courses SET image='$image' WHERE id=$id";
+
+    return mysqli_query($connexion, $sql);
+}
+
+
+function affichedata($id) {
+    global $connexion;
+    $sql = "SELECT * FROM courses WHERE id=$id";
+    $result = mysqli_query($connexion, $sql);
+    return mysqli_fetch_assoc($result);
+}
 ?>

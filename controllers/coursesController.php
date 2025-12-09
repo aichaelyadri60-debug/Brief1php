@@ -34,4 +34,41 @@ if ($action == "delete") {
 
 
 
+if ($action == "edit" && $_SERVER['REQUEST_METHOD'] === 'GET') {
+
+    if (!isset($_GET['id'])) {
+        header("Location: index.php?page=courses");
+        exit;
+    }
+    $id = intval($_GET["id"]);
+    $data = affichedata($id);
+
+    return; 
+}
+
+
+if ($action == "edit" && $_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $id = intval($_GET['id']);
+    $title = $_POST["titre"];
+    $desc = $_POST["desc"];
+    $niveau = $_POST["niveau"];
+
+    $newImage = null;
+
+    if (!empty($_FILES['image']['name'])) {
+
+        $newImage = time() . "_" . basename($_FILES['image']['name']);
+        $targetDir = "./images/";
+        move_uploaded_file($_FILES["image"]["tmp_name"], $targetDir . $newImage);
+
+        updateImageCourse($id, $newImage);
+    }
+
+    editcourse($id, $title, $desc, $niveau);
+
+    header("Location: index.php?page=courses");
+    exit;
+}
+
 ?>
