@@ -26,5 +26,15 @@ function createsection($id, $title, $Content){
     return mysqli_query($connexion, $sql);
 }
 
+function deletesection($id ,$idsection){
+    global $connexion ;
+    $id =intval($id);
+    $idsection =intval($idsection);
+    $sql ="DELETE FROM sections WHERE id =$idsection AND course_id =$id";
+    return mysqli_query($connexion ,$sql);
+}
+
+
+
 
 ?>
