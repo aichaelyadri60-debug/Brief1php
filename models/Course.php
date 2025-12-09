@@ -19,4 +19,17 @@ function stockercourses($title, $description, $level, $imageName): bool {
     return mysqli_query($connexion, $sql);
 }
 
+function  deletesecbycourse($id){
+    global $connexion;
+    $sql =" DELETE FROM sections WHERE course_id =$id";
+    return mysqli_query($connexion ,$sql);
+
+
+
+}
+function deletecourses($id) {
+    global $connexion;
+    $sql = "DELETE FROM courses WHERE id = $id";
+    return mysqli_query($connexion, $sql);
+}
 ?>

@@ -20,4 +20,18 @@ if ($action == "store" && $_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
+
+if ($action == "delete") {
+
+    if (isset($_GET['id'])) {
+        deletesecbycourse($_GET['id']);
+        deletecourses(intval($_GET['id']));
+    }
+
+    header("Location: index.php?page=courses");
+    exit;
+}
+
+
+
 ?>
