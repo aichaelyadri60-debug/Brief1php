@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="./assets/createsections.css">
 </head>
 <body>
+    <?php require_once __DIR__ . '/../layout/header.html'; ?>
 
     <main class="page-container">
 
-        <h1 class="page-title">Create New Section</h1>
+        <h1 class="page-title">edit Section <?= $sectiondata['id'] ?></h1>
         <p class="page-subtitle">Add a new section to your course</p>
 
         <div class="form-container">
@@ -41,6 +42,6 @@
         </div>
     </main>
 
-
+<?php require_once __DIR__ . '/../layout/footer.html'; ?>
 </body>
 </html>

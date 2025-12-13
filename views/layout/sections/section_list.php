@@ -7,7 +7,7 @@
     <title>Sections</title>
 </head>
 <body>
-
+<?php require_once __DIR__ . '/../layout/header.html'; ?>
 <div class="course-manager">
 
     <a href="index.php?page=courses&action=list" class="cm-back">← Back to Courses</a>
@@ -58,6 +58,6 @@
     </div>
 
 </div>
-
+<?php require_once __DIR__ . '/../layout/footer.html'; ?>
 </body>
 </html>

@@ -1,5 +1,4 @@
 
-/* GLOBAL */
 * {
     margin: 0;
     padding: 0;
@@ -9,9 +8,10 @@
 
 body {
     background: #f5f6f8;
+    padding-top: 40px; 
 }
 
-/* NAVBAR */
+
 .navbar {
     background: #ffffff;
     padding: 15px 40px;
@@ -33,7 +33,6 @@ body {
     font-weight: 600;
 }
 
-/* MAIN CONTENT */
 .page-container {
     width: 100%;
     max-width: 800px;
@@ -51,7 +50,6 @@ body {
     color: #777;
 }
 
-/* FORM CARD */
 .form-container {
     background: #fff;
     width: 100%;
@@ -62,7 +60,6 @@ body {
     text-align: left;
 }
 
-/* FORM ELEMENTS */
 .form-label {
     font-weight: 600;
     display: block;
@@ -84,7 +81,7 @@ body {
     resize: none;
 }
 
-/* BUTTONS */
+
 .btn-group {
     display: flex;
     gap: 15px;

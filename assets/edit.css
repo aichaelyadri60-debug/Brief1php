@@ -1,120 +1,127 @@
-/* ------------- RESET ------------- */
+/* -------------------- GLOBAL STYLE -------------------- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+    font-family: "Inter", sans-serif;
 }
 
 body {
-    background: #F7F9FC;
+    background: #f4f6f9;
+    color: #222;
+    padding-bottom: 60px;
 }
+
+/* -------------------- PAGE LAYOUT -------------------- */
 .page-container {
-    max-width: 700px;
-    margin: 80px auto;
-    text-align: center;
-}
-
-.page-container h2 {
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: #1B2A4A;
-    margin-bottom: 5px;
-}
-
-.subtitle {
-    color: #5F6C8E;
-    font-size: 1rem;
-    margin-bottom: 30px;
+    max-width: 720px;
+    margin: 60px auto;
+    padding: 0 20px;
 }
 
 .form-card {
     background: white;
     padding: 40px;
-    max-width: 650px;
-    margin: auto;
-    border-radius: 18px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+    margin-top: 25px;
 }
 
+/* -------------------- TITLES -------------------- */
+.page-container h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 6px;
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 15px;
+    color: #6b7280;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* -------------------- FORM FIELDS -------------------- */
 label {
     display: block;
-    margin-top: 18px;
-    margin-bottom: 6px;
+    margin: 20px 0 6px;
     font-weight: 600;
-    color: #1B2A4A;
+    color: #1f2937;
     font-size: 0.95rem;
-    text-align: left;
 }
 
 input[type="text"],
+input[type="file"],
 textarea,
-select,
-input[type="file"] {
+select {
     width: 100%;
-    padding: 12px 14px;
-    border-radius: 12px;
-    border: 1px solid #D5DBE7;
-    background: #F5F7FB;
-    font-size: 1rem;
-    color: #1B2A4A;
+    padding: 13px 15px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    background: #f9fafb;
+    font-size: 15px;
     transition: 0.25s;
+    color: #111;
 }
 
 input:focus,
 textarea:focus,
 select:focus {
-    border-color: #4A74FF;
     background: white;
-    box-shadow: 0 0 0 3px rgba(74, 116, 255, 0.25);
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
     outline: none;
 }
 
 textarea {
-    min-height: 130px;
+    min-height: 140px;
     resize: vertical;
 }
 
-.btn-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    margin-top: 30px;
-}
-
+/* -------------------- BUTTONS -------------------- */
 .btn-save {
-    flex: 1;
-    background: #4A74FF;
-    padding: 12px 18px;
-    border: none;
-    border-radius: 12px;
-    font-size: 1rem;
-    font-weight: 600;
+    background: #3b82f6;
     color: white;
+    padding: 13px 20px;
+    border: none;
+    border-radius: 10px;
     cursor: pointer;
+    margin-top: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    width: 100%;
     transition: 0.25s;
 }
 
 .btn-save:hover {
-    background: #2e56f5;
+    background: #2563eb;
     transform: translateY(-2px);
 }
 
 /* Cancel Button */
 .btn-cancel {
-    flex: 1;
+    display: block;
     text-align: center;
-    padding: 12px 18px;
-    border-radius: 12px;
-    font-size: 1rem;
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    color: #3b82f6;
     font-weight: 600;
-    border: 1px solid #D5DBE7;
-    color: #4A74FF;
-    background: white;
     text-decoration: none;
     transition: 0.25s;
 }
 
 .btn-cancel:hover {
-    background: #eef2ff;
+    background: #edf2ff;
+}
+
+/* -------------------- FOOTER -------------------- */
+.cm-footer {
+    text-align: center;
+    color: #9ca3af;
+    font-size: 13px;
+    margin-top: 40px;
 }

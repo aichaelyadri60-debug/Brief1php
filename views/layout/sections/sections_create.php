@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./assets/createsections.css">
 </head>
 <body>
-
+<?php require_once __DIR__ . '/../layout/header.html'; ?>
     <main class="page-container">
 
         <h1 class="page-title">Create New Section</h1>
@@ -42,6 +42,6 @@
         </div>
     </main>
 
-
+<?php require_once __DIR__ . '/../layout/footer.html'; ?>
 </body>
 </html>

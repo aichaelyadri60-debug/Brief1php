@@ -16,10 +16,8 @@
                 <h2>Courses</h2>
                 <p class="subtitle">Manage your educational content</p>
             </div>
-
             <a href="index.php?page=courses&action=create" class="btn-create">+ Add Course</a>
         </div>
-
         <table>
             <tr>
                 <th>ID</th>
