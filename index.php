@@ -12,9 +12,6 @@ if ($page === "courses") {
         case "edit":
             include "./views\layout/courses/courses_edit.php";
             break;
-        // case "delete":
-        //     include "./views\layout/courses/courses_delete.php";
-        //     break;
         default:
             include "./views\layout/courses/courses_list.php";
             break;
@@ -31,9 +28,6 @@ if($page === "sections"){
         case "edit":
             include "./views\layout/sections/sections_edit.php";
             break;
-        // case "delete":
-        //     include "./views\layout/courses/courses_delete.php";
-        //     break;
         default:
             include "./views\layout/sections/section_list.php";
             break;
