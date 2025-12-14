@@ -18,34 +18,33 @@
         <p class="subtitle">Add a new course to your library</p>
 
         <div class="form-card">
+<form id="courseForm" action="index.php?page=courses&action=store"
+      method="POST" enctype="multipart/form-data">
 
-            <form action="index.php?page=courses&action=store" method="POST" enctype="multipart/form-data">
+    <label>Course Title</label>
+    <input type="text" id="title" name="title" placeholder="Enter course title" required>
 
-                <label>Course Title</label>
-                <input type="text" name="title" placeholder="Enter course title" required>
+    <label>Description</label>
+    <textarea id="description" name="description"
+              placeholder="Describe what students will learn" required></textarea>
 
-                <label>Description</label>
-                <textarea name="description" placeholder="Describe what students will learn" required></textarea>
+    <label>Image course</label>
+    <input id="imagecourses" name="imagecourses" type="file" />
 
-                <label>image course</label>
-                <input name="imagecourses" type="file" />
+    <label>Level</label>
+    <select id="level" name="level">
+        <option value="">-- Select level --</option>
+        <option value="Débutant">Beginner</option>
+        <option value="Intermédiaire">Intermediate</option>
+        <option value="Avancé">Advanced</option>
+    </select>
 
-                <label>Level</label>
-                <select name="level">
-                    <option value="Débutant">Beginner</option>
-                    <option value="Intermédiaire">Intermediate</option>
-                    <option value="Avancé">Advanced</option>
-                </select>
+    <div class="btn-row">
+        <button type="submit" class="btn-save">💾 Save Course</button>
+        <a href="index.php?page=courses" class="btn-cancel">✖ Cancel</a>
+    </div>
+</form>
 
-                <div class="btn-row">
-                    <button type="submit" class="btn-save">
-                        💾 Save Course
-                    </button>
-
-                    <a href="index.php?page=courses" class="btn-cancel">✖ Cancel</a>
-                </div>
-
-            </form>
 
         </div>
 

@@ -15,7 +15,10 @@
 
         <div class="form-container">
 
-         <form action="index.php?page=sections&id=<?= $_GET['id'] ?>&action=create" method="POST">
+<form id="sectionForm"
+      action="index.php?page=sections&id=<?= $_GET['id'] ?>&action=create"
+      method="POST">
+
 
                 <label class="form-label">Section Title</label>
                 <input 
