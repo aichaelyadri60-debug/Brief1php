@@ -1,37 +1,47 @@
-<?php
+ <?php
+require_once "controllersoop/contollerSections.php";
+require_once "controllersoop/controllerCourses.php";
 
-$page = $_GET['page'] ?? "courses";
-$action = $_GET['action'] ?? "list";
+$page   = $_GET['page']   ?? 'courses';
+$action = $_GET['action'] ?? 'list';
 
-if ($page === "courses") {
-    include "./controllers/coursesController.php";
+if ($page === 'courses') {
+
+    $controller = new CourseController();
+
     switch ($action) {
-        case "create":
-            include "./views\layout/courses/courses_create.php";
-            break;
-        case "edit":
-            include "./views\layout/courses/courses_edit.php";
-            break;
-        default:
-            include "./views\layout/courses/courses_list.php";
-            break;
+        case 'list':    $controller->index(); break;
+        case 'create':  $controller->create(); break;
+        case 'store':   $controller->store(); break;
+        case 'edit':    $controller->edit(); break;
+        case 'update':  $controller->update(); break;
+        case 'destroy': $controller->destroy(); break;
+        default: echo "Action introuvable";
     }
 }
 
 
-if($page === "sections"){
-    include "./controllers/SectionsController.php";
+
+
+elseif ($page === 'sections') {
+
+    $controller = new SectionController();
+
     switch ($action) {
-        case "create":
-            include "./views\layout/sections/sections_create.php";
-            break;
-        case "edit":
-            include "./views\layout/sections/sections_edit.php";
-            break;
-        default:
-            include "./views\layout/sections/section_list.php";
-            break;
-        }
+        case 'list':    $controller->index(); break;
+        case 'create':  $controller->create(); break;
+        case 'store':   $controller->store(); break;
+        case 'edit':    $controller->edit(); break;
+        case 'update':  $controller->update(); break;
+        case 'destroy': $controller->destroy(); break;
+        default: echo "Action section introuvable";
+    }
 }
 
-?>
+
+else {
+    echo "Page introuvable";
+}
+
+
+

@@ -1,6 +1,6 @@
 <?php
 
-require_once "./models/Section.php";
+require_once "./modaloop/sectionoop.php";
 
 class SectionController {
 
@@ -13,64 +13,84 @@ class SectionController {
 
     public function index()
     {
-        if (!isset($_GET['course_id'])) {
+        if (!isset($_GET['id'])) {
             header("Location: index.php?page=courses");
             exit;
         }
 
-        $courseId = intval($_GET['course_id']);
-        $sections = $this->sectionModel->allByCourse($courseId);
+        $courseId = intval($_GET['id']);
+        $sectiondata = $this->sectionModel->allByCourse($courseId);
 
-        require "./views/sections/list.php";
+        require "./views/layout/sections/section_list.php";
+    }
+    public function create()
+{
+    if (!isset($_GET['id'])) {
+        header("Location: index.php?page=sections");
+        exit;
     }
 
-    public function store()
-    {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $courseId = intval($_GET['id']);
+    require "./views/layout/sections/sections_create.php";
+}
 
-            $title = $_POST['title'];
-            $courseId = intval($_POST['course_id']);
 
-            $this->sectionModel->store($title, $courseId);
+public function store()
+{
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-            header("Location: index.php?page=sections&course_id=" . $courseId);
-            exit;
-        }
+        $courseId = intval($_GET['id']);   
+        $title = $_POST['title'];
+
+        $this->sectionModel->store($title, $courseId);
+
+        header("Location: index.php?page=sections&id=" . $courseId);
+        exit;
     }
+}
+
 
     public function destroy()
     {
-        if (isset($_GET['id'], $_GET['course_id'])) {
+        if (isset($_GET['id'], $_GET['idsection'])) {
 
-            $id = intval($_GET['id']);
-            $courseId = intval($_GET['course_id']);
+            $id = intval($_GET['idsection']);
+            $courseId = intval($_GET['id']);
 
-            $this->sectionModel->delete($id);
+            $this->sectionModel->delete($id ,$courseId);
 
-            header("Location: index.php?page=sections&course_id=" . $courseId);
+            header("Location: index.php?page=sections&id=" . $courseId);
             exit;
         }
     }
 
-    public function edit()
+ public function edit()
     {
-        $id = intval($_GET['id']);
-        $section = $this->sectionModel->find($id);
+        if (!isset($_GET['idsection'], $_GET['id'])) {
+            header("Location: index.php?page=courses");
+            exit;
+        }
 
-        require "./views/sections/edit.php";
+        $sectionId = intval($_GET['idsection']);
+        $sectiondata = $this->sectionModel->find($sectionId);
+
+        require "./views/layout/sections/Sections_edit.php";
     }
 
     public function update()
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['id'], $_GET['idsection'])) {
 
-            $id = intval($_POST['id']);
-            $title = $_POST['title'];
-            $courseId = intval($_POST['course_id']);
+            $sectionId = intval($_GET['idsection']);
+            $courseId  = intval($_GET['id']);
+            $title     = $_POST['titleS'];
+            $content = $_POST['ContentS'];
 
-            $this->sectionModel->update($id, $title);
 
-            header("Location: index.php?page=sections&course_id=" . $courseId);
+
+            $this->sectionModel->update($sectionId, $title, $content);
+
+            header("Location: index.php?page=sections&id=" . $courseId);
             exit;
         }
     }

@@ -13,21 +13,24 @@ class Section {
 
     public function allByCourse($courseId)
     {
-        $sql = "SELECT * FROM sections WHERE course_id = $courseId";
+        $sql = "SELECT sections.*, courses.title AS course_name
+            FROM sections 
+            LEFT JOIN courses ON sections.course_id = courses.id 
+            WHERE sections.course_id = $courseId";
         $result = mysqli_query($this->connexion, $sql);
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
 
     public function store($title, $courseId)
     {
-        $sql = "INSERT INTO sections (title, course_id)
+        $sql = "INSERT INTO sections (titleS, course_id)
                 VALUES ('$title', $courseId)";
         mysqli_query($this->connexion, $sql);
     }
 
-    public function delete($id)
+    public function delete($id ,$courseId)
     {
-        $sql = "DELETE FROM sections WHERE id = $id";
+        $sql = "DELETE FROM sections WHERE id = $id  AND course_id =$courseId";
         mysqli_query($this->connexion, $sql);
     }
 
@@ -38,9 +41,13 @@ class Section {
         return mysqli_fetch_assoc($result);
     }
 
-    public function update($id, $title)
-    {
-        $sql = "UPDATE sections SET title = '$title' WHERE id = $id";
-        mysqli_query($this->connexion, $sql);
-    }
+public function update($id, $title, $content)
+{
+    $sql = "UPDATE sections 
+            SET titleS = '$title',
+                content = '$content'
+            WHERE id = $id";
+    mysqli_query($this->connexion, $sql);
+}
+
 }

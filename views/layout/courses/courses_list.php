@@ -59,13 +59,17 @@
                             alt="modifier">
 
                         <img src="./assets/button (2).png"
-                            onclick="window.location.href='index.php?page=courses&action=delete&id=<?= $c['id'] ?>'"
+                            onclick="window.location.href='index.php?page=courses&action=destroy&id=<?= $c['id'] ?>'"
                             alt="supprimer">
                     </td>
 
                 </tr>
             <?php endforeach; ?>
         </table>
+
+
+
+      
 
     </div>
 
