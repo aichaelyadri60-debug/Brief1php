@@ -1,16 +1,17 @@
 <?php
 
-
-function connect() {
-    $servername = "localhost";
+$servername = "localhost";
 $username   = "root";
 $password   = "";
 $database   = "brief1php";
+try{
+    $pdo =new pdo ("mysql:host=$servername ,dbname=$username" ,$password ,$database);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE ,PDO::ERRMODE_EXCEPTION);
+    return $pdo;
 
-   $connexion = new mysqli($servername, $username, $password, $database);
-   if ($connexion->connect_error) {
-    die("Erreur de connexion : " . $connexion->connect_error);
+}catch(PDOException $e){
+    echo"erreur" .$e->getmessage();
 }
-return $connexion;
-}
+
+
 ?>
