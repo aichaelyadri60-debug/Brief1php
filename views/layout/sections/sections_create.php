@@ -16,7 +16,7 @@
         <div class="form-container">
 
 <form id="sectionForm"
-      action="index.php?page=sections&id=<?= $_GET['id'] ?>&action=create"
+      action="index.php?page=sections&id=<?= $_GET['id'] ?>&action=store"
       method="POST">
 
 
@@ -35,7 +35,7 @@
                     placeholder="Enter section content"
                 ></textarea>
                 <div class="btn-group">
-                    <button type="submit" name="submit" class="btn btn-save">💾 edit Section</button>
+                    <button type="submit" name="submit" class="btn btn-save">💾 ajouter Section</button>
                     <button type="button" class="btn btn-cancel" onclick="window.history.back()">✖ Cancel </button>
                 </div>
 

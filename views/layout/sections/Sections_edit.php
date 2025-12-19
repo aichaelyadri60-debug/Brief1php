@@ -10,14 +10,13 @@
     <?php require_once __DIR__ . '/../layout/header.html'; ?>
 
     <main class="page-container">
-
         <h1 class="page-title">edit Section <?= $sectiondata['id'] ?></h1>
         <p class="page-subtitle">Add a new section to your course</p>
 
         <div class="form-container">
 
 <form id="editSectionForm"
-      action="index.php?page=sections&id=<?= $_GET['id'] ?>&idsection=<?= $_GET['idsection'] ?>&action=edit"
+      action="index.php?page=sections&id=<?= $_GET['id'] ?>&idsection=<?= $_GET['idsection'] ?>&action=update"
       method="POST">
 
 

@@ -44,7 +44,7 @@
 
             <div class="section-actions">
                 <button class="icon-btn" onclick="window.location.href='index.php?page=sections&action=edit&id=<?= $_GET['id'] ?>&idsection=<?= $s['id'] ?>'">✏️</button>
-                <button class="icon-btn"   onclick="window.location.href='index.php?page=sections&action=delete&id=<?= $_GET['id'] ?>&idsection=<?= $s['id'] ?>'">🗑️</button>
+                <button class="icon-btn"   onclick="window.location.href='index.php?page=sections&action=destroy&id=<?= $_GET['id'] ?>&idsection=<?= $s['id'] ?>'">🗑️</button>
             </div>
 
         </div>
