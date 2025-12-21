@@ -54,6 +54,11 @@ switch ($page) {
         $controller = new SectionController();
         $action = $action ?? 'list';
         break;
+    case 'enrollment':
+        $controller = new EnrollmentController();
+        $action = $action ?? 'store';
+        break;
+
 
     default:
         die(" Page introuvable");

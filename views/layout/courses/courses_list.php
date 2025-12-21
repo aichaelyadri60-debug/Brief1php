@@ -9,6 +9,7 @@
 </head>
 <body>
     <?php require_once __DIR__ . '/../layout/header.html'; ?>
+     <?php require_once __DIR__ . '/../layout/footer.html'; ?>
 
     <div class="container">
         <div class="header-row">
@@ -69,6 +70,9 @@ $class = $levels[$c->getLevel()] ?? "";
 
         <img src="./assets/button (2).png"
              onclick="location.href='index.php?page=courses&action=destroy&id=<?= $c->getId() ?>'">
+             <a href="index.php?page=enrollment&action=store&course_id=<?= $course->getId() ?>"
+             class="btn-enroll">S'inscrire</a>
+
     </td>
 </tr>
 
@@ -81,8 +85,8 @@ $class = $levels[$c->getLevel()] ?? "";
       
 
     </div>
+   
 
-    <?php require_once __DIR__ . '/../layout/footer.html'; ?>
 
 
 </body>
