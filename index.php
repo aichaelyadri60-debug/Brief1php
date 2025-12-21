@@ -56,12 +56,12 @@ switch ($page) {
         break;
 
     default:
-        die("❌ Page introuvable");
+        die(" Page introuvable");
 }
 
 
 if (!method_exists($controller, $action)) {
-    die("❌ Action introuvable");
+    die(" Action introuvable");
 }
 
 $controller->$action();
