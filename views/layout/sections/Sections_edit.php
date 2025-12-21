@@ -10,13 +10,13 @@
     <?php require_once __DIR__ . '/../layout/header.html'; ?>
 
     <main class="page-container">
-        <h1 class="page-title">edit Section <?= $sectiondata['id'] ?></h1>
+        <h1 class="page-title">edit Section <?= $section->getId() ?></h1>
         <p class="page-subtitle">Add a new section to your course</p>
 
         <div class="form-container">
 
 <form id="editSectionForm"
-      action="index.php?page=sections&id=<?= $_GET['id'] ?>&idsection=<?= $_GET['idsection'] ?>&action=update"
+      action="index.php?page=sections&id=<?= $_GET['id'] ?>&idsection=<?= $section->getId() ?>"&action=update"
       method="POST">
 
 
@@ -25,14 +25,14 @@
                     type="text" 
                     class="form-input" 
                     placeholder="Enter section title"
-                    value="<?= $sectiondata['titleS'] ?>"
+                    value="<?= htmlspecialchars($section->getTitleS()) ?>"
                 >
                 <label class="form-label">Content</label>
                 <textarea 
                  name="ContentS"
                     class="form-textarea" 
                     placeholder="Enter section content"
-                ><?= $sectiondata['content'] ?></textarea>
+                ><?= htmlspecialchars($section->getContent()) ?></textarea>
                 <div class="btn-group">
                     <button type="submit" name="submit" class="btn btn-save">💾 edit Section</button>
                     <button type="button" class="btn btn-cancel" onclick="window.history.back()">✖ Cancel </button>

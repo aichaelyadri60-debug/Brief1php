@@ -1,61 +1,67 @@
- <?php
-// require_once "controllersoop/contollerSections.php";
-// require_once "controllersoop/controllerCourses.php";
+<?php
+session_start();
 
-// $page   = $_GET['page']   ?? 'courses';
-// $action = $_GET['action'] ?? 'list';
-
-// if ($page === 'courses') {
-
-//     $controller = new CourseController();
-
-//     switch ($action) {
-//         case 'list':    $controller->index(); break;
-//         case 'create':  $controller->create(); break;
-//         case 'store':   $controller->store(); break;
-//         case 'edit':    $controller->edit(); break;
-//         case 'update':  $controller->update(); break;
-//         case 'destroy': $controller->destroy(); break;
-//         default: echo "Action introuvable";
-//     }
-// }
+require_once 'core/kernel/autoloading.php';
+Autoloading::LoadClass();
 
 
+$page   = $_GET['page']   ?? 'login';
+$action = $_GET['action'] ?? null;
+
+$publicPages = ['login', 'register', 'authenticate' , 'auth'];
+
+if (!in_array($page, $publicPages) && !isset($_SESSION['admin'])) {
+    header("Location: index.php?page=login");
+    exit;
+}
 
 
-// elseif ($page === 'sections') {
+switch ($page) {
 
-//     $controller = new SectionController();
+    case 'login':
+        require './views/layout/auth/login.php';
+        exit;
 
-//     switch ($action) {
-//         case 'list':    $controller->index(); break;
-//         case 'create':  $controller->create(); break;
-//         case 'store':   $controller->store(); break;
-//         case 'edit':    $controller->edit(); break;
-//         case 'update':  $controller->update(); break;
-//         case 'destroy': $controller->destroy(); break;
-//         default: echo "Action section introuvable";
-//     }
-// }
+    case 'register':
+        require './views/layout/auth/register.php';
+        exit;
+        case 'auth':
+            $controller = new AuthController();
+            $action = $action ?? 'login';
+            break;
+        case 'authenticate':
+    $controller = new AuthController();
+    $controller->authenticate();
+    exit;
+
+    case 'logout':
+        $controller = new AuthController();
+        $controller->logout();
+        exit;
+
+    case 'dashboard':
+        $controller = new DashboardController();
+        $controller->index();
+        exit;
 
 
-// else {
-//     echo "Page introuvable";
-// }
+    case 'courses':
+        $controller = new CourseController();
+        $action = $action ?? 'list';
+        break;
+
+    case 'sections':
+        $controller = new SectionController();
+        $action = $action ?? 'list';
+        break;
+
+    default:
+        die("❌ Page introuvable");
+}
 
 
-require 'modaloop/BaseEntity.php';
-require 'modaloop/sectionoop.php';
+if (!method_exists($controller, $action)) {
+    die("❌ Action introuvable");
+}
 
-$data = [
-    'id' => 1,
-    'titleS' => 'PHP',
-    'content' => 'Introduction',
-    'course_id' => 5
-];
-
-$course = new Section();
-$course->hydrate($data);
-
-var_dump($course);
-
+$controller->$action();

@@ -13,7 +13,7 @@
     <a href="index.php?page=courses&action=list" class="cm-back">← Back to Courses</a>
 
     <h1 class="cm-course-title">
-        <?= !empty($sectiondata) ? $sectiondata[0]['course_name'] : "Course" ?>
+        <?= htmlspecialchars($course->getTitle()) ?>
     </h1>
 
     <p class="cm-subtitle">Manage course sections and content</p>
@@ -37,14 +37,14 @@
                 <div class="section-number"><?= $count++; ?></div>
 
                 <div>
-                    <h3><?= htmlspecialchars($s['titleS']) ?></h3>
-                    <p class="date"><?= htmlspecialchars($s['created_at']) ?></p>
+                    <h3><?= htmlspecialchars($s->getTitleS()) ?></h3>
+                    <p class="date"><?= htmlspecialchars($s->getContent()) ?></p>
                 </div>
             </div>
 
             <div class="section-actions">
-                <button class="icon-btn" onclick="window.location.href='index.php?page=sections&action=edit&id=<?= $_GET['id'] ?>&idsection=<?= $s['id'] ?>'">✏️</button>
-                <button class="icon-btn"   onclick="window.location.href='index.php?page=sections&action=destroy&id=<?= $_GET['id'] ?>&idsection=<?= $s['id'] ?>'">🗑️</button>
+                <button class="icon-btn" onclick="window.location.href='index.php?page=sections&action=edit&id=<?= $_GET['id'] ?>&idsection=<?= $s->getId() ?>'">✏️</button>
+                <button class="icon-btn"   onclick="window.location.href='index.php?page=sections&action=destroy&id=<?= $_GET['id'] ?>&idsection=<?= $s->getId() ?>'">🗑️</button>
             </div>
 
         </div>

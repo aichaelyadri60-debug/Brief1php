@@ -3,40 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Course</title>
+    <title>Edit Course</title>
     <link rel="stylesheet" href="./assets/edit.css">
 </head>
 <body>
-    <?php require_once __DIR__ . '/../layout/header.html'; ?>
-    <div class="page-container">
-        <div class="form-card">
-          <form id="editCourseForm"
-      action="index.php?page=courses&action=update&id=<?= $_GET['id'] ?>"
-      method="POST"
-      enctype="multipart/form-data">
 
-    <label>Course Title</label>
-    <input type="text" name="title" value="<?= $data['title'] ?>" required>
+<?php require_once __DIR__ . '/../layout/header.html'; ?>
 
-    <label>Description</label>
-    <textarea name="description" required><?= $data['DescriptionC'] ?></textarea>
+<div class="page-container">
+    <div class="form-card">
 
-    <label>Image course (laisser vide si pas de changement)</label>
-    <input type="file" name="imagecourses">
+        <form action="index.php?page=courses&action=update&id=<?= $course->getId() ?>"
+              method="POST"
+              enctype="multipart/form-data">
 
-    <label>Level</label>
-    <select id="niveau" name="level">
-        <option value="Débutant" <?= $data['level']=="Débutant" ? 'selected' : '' ?>>Beginner</option>
-        <option value="Intermédiaire" <?= $data['level']=="Intermédiaire" ? 'selected' : '' ?>>Intermediate</option>
-        <option value="Avancé" <?= $data['level']=="Avancé" ? 'selected' : '' ?>>Advanced</option>
-    </select>
+            <label>Course Title</label>
+            <input type="text"
+                   name="title"
+                   value="<?= htmlspecialchars($course->getTitle()) ?>"
+                   required>
 
-    <button type="submit" class="btn-save">💾 Edit Course</button>
-    <a href="index.php?page=courses" class="btn-cancel">✖ Cancel</a>
-</form>
+            <label>Description</label>
+            <textarea name="description" required><?= htmlspecialchars($course->getDescriptionC()) ?></textarea>
 
-        </div>
+            <label>Image course (laisser vide si pas de changement)</label>
+            <input type="file" name="imagecourses">
+
+            <label>Level</label>
+            <select name="level">
+                <option value="Débutant" <?= $course->getLevel() === "Débutant" ? 'selected' : '' ?>>Beginner</option>
+                <option value="Intermédiaire" <?= $course->getLevel() === "Intermédiaire" ? 'selected' : '' ?>>Intermediate</option>
+                <option value="Avancé" <?= $course->getLevel() === "Avancé" ? 'selected' : '' ?>>Advanced</option>
+            </select>
+
+            <button type="submit" class="btn-save">💾 Edit Course</button>
+            <a href="index.php?page=courses" class="btn-cancel">✖ Cancel</a>
+        </form>
+
     </div>
-    <?php require_once __DIR__ . '/../layout/footer.html'; ?>
+</div>
+
+<?php require_once __DIR__ . '/../layout/footer.html'; ?>
+
 </body>
 </html>

@@ -29,42 +29,51 @@
                 <th>Actions</th>
             </tr>
 
-            <?php foreach ($courses as $c):
-                $levels = [
-                    "Débutant" => "debutant",
-                    "Intermédiaire" => "intermediaire",
-                    "Avancé" => "avance"
-                ];
+           <?php foreach ($courses as $c):
 
-                $class = $levels[$c['level']] ?? ""; ?>
+$levels = [
+    "Débutant" => "debutant",
+    "Intermédiaire" => "intermediaire",
+    "Avancé" => "avance"
+];
 
-                <tr class="trrr">
-                    <td><?= $c['id'] ?></td>
-                    <td><img src="./images/<?= $c['image'] ?>" style="width:50px; height:50px;"/></td>
-                    <td><?= $c['title'] ?></td>
-                    <td>
-                        <span class="badge <?= $class ?>">
-                            <?= $c['level'] ?>
-                        </span>
-                    </td>
-                    <td><?= $c['DescriptionC'] ?></td>
-                    <td><?= $c['created_at'] ?></td>
-                    <td class="actions">
-                        <img src="./assets/button.png"
-                            onclick="window.location.href='index.php?page=sections&action=list&id=<?= $c['id'] ?>'"
-                            alt="details">
+$class = $levels[$c->getLevel()] ?? "";
+?>
 
-                        <img src="./assets/button (1).png"
-                            onclick="window.location.href='index.php?page=courses&action=edit&id=<?= $c['id'] ?>'"
-                            alt="modifier">
+<tr>
+    <td><?= $c->getId() ?></td>
 
-                        <img src="./assets/button (2).png"
-                            onclick="window.location.href='index.php?page=courses&action=destroy&id=<?= $c['id'] ?>'"
-                            alt="supprimer">
-                    </td>
+    <td>
+        <?php if ($c->getImage()): ?>
+            <img src="./images/<?= $c->getImage() ?>" width="50">
+        <?php endif; ?>
+    </td>
 
-                </tr>
-            <?php endforeach; ?>
+    <td><?= $c->getTitle() ?></td>
+
+    <td>
+        <span class="badge <?= $class ?>">
+            <?= $c->getLevel() ?>
+        </span>
+    </td>
+
+    <td><?= $c->getDescriptionC() ?></td>
+    <td><?= $c->getCreatedAt() ?></td>
+
+    <td class="actions">
+        <img src="./assets/button.png"
+             onclick="location.href='index.php?page=sections&action=list&id=<?= $c->getId() ?>'">
+
+        <img src="./assets/button (1).png"
+             onclick="location.href='index.php?page=courses&action=edit&id=<?= $c->getId() ?>'">
+
+        <img src="./assets/button (2).png"
+             onclick="location.href='index.php?page=courses&action=destroy&id=<?= $c->getId() ?>'">
+    </td>
+</tr>
+
+<?php endforeach; ?>
+
         </table>
 
 
