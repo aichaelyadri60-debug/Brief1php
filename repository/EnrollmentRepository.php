@@ -1,14 +1,9 @@
 <?php
-require_once "./config/db.php";
 
-class EnrollmentRepository
+class EnrollmentRepository extends BaseRepository
 {
-    private PDO $pdo;
-
-    public function __construct()
-    {
-        $this->pdo = require "./config/db.php";
-    }
+        protected string $table = 'enrollments';
+    protected string $entityClass = Enrollment::class;
     public function enroll(int $userId, int $courseId): bool
     {
         $sql = "INSERT INTO enrollments (user_id, course_id)

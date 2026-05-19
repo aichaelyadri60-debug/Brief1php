@@ -1,94 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Courses</title>
     <link rel="stylesheet" href="./assets/courses.css">
 </head>
-<body>
-    <?php require_once __DIR__ . '/../layout/header.html'; ?>
-     <?php require_once __DIR__ . '/../layout/footer.html'; ?>
 
-    <div class="container">
-        <div class="header-row">
-            <div>
-                <h2>Courses</h2>
-                <p class="subtitle">Manage your educational content</p>
-            </div>
-            <a href="index.php?page=courses&action=create" class="btn-create">+ Add Course</a>
+<body>
+
+<?php require_once __DIR__ . '/../layout/header.html'; ?>
+<?php require_once __DIR__ . '/../layout/footer.html'; ?>
+
+<div class="container">
+
+    <div class="header-row">
+        <div>
+            <h2>Courses</h2>
+            <p class="subtitle">Manage your educational content</p>
         </div>
-        <table>
+        <a href="index.php?page=courses&action=create" class="btn-create">+ Add Course</a>
+    </div>
+
+    <table>
+        <thead>
             <tr>
                 <th>ID</th>
-                 <th style="width:100px ; height:100px;">image</th>
+                <th>Image</th>
                 <th>Titre</th>
-                <th>niveau</th>
+                <th>Niveau</th>
                 <th>Description</th>
-                <th>date</th>
+                <th>Date</th>
                 <th>Actions</th>
             </tr>
+        </thead>
 
-           <?php foreach ($courses as $c):
+        <tbody>
+        <?php foreach ($courses as $c): 
 
-$levels = [
-    "Débutant" => "debutant",
-    "Intermédiaire" => "intermediaire",
-    "Avancé" => "avance"
-];
+            $levels = [
+                "Débutant" => "debutant",
+                "Intermédiaire" => "intermediaire",
+                "Avancé" => "avance"
+            ];
 
-$class = $levels[$c->getLevel()] ?? "";
-?>
+            $class = $levels[$c->getLevel()] ?? "";
+        ?>
+            <tr>
+                <td><?= $c->getId() ?></td>
 
-<tr>
-    <td><?= $c->getId() ?></td>
+                <td>
+                    <?php if ($c->getImage()): ?>
+                        <img src="./images/<?= htmlspecialchars($c->getImage()) ?>" width="60">
 
-    <td>
-        <?php if ($c->getImage()): ?>
-            <img src="./images/<?= $c->getImage() ?>" width="50">
-        <?php endif; ?>
-    </td>
+                    <?php endif; ?>
+                </td>
 
-    <td><?= $c->getTitle() ?></td>
+                <td><?= htmlspecialchars($c->getTitle()) ?></td>
 
-    <td>
-        <span class="badge <?= $class ?>">
-            <?= $c->getLevel() ?>
-        </span>
-    </td>
+                <td>
+                    <span class="badge <?= $class ?>">
+                        <?= htmlspecialchars($c->getLevel()) ?>
+                    </span>
+                </td>
 
-    <td><?= $c->getDescriptionC() ?></td>
-    <td><?= $c->getCreatedAt() ?></td>
+                <td><?= htmlspecialchars($c->getDescriptionC()) ?></td>
+                <td><?=$c->getCreatedAt() ?></td>
 
-    <td class="actions">
-        <img src="./assets/button.png"
-             onclick="location.href='index.php?page=sections&action=list&id=<?= $c->getId() ?>'">
+                <td class="actions">
+                    <img src="./assets/button.png"
+                         title="Sections"
+                         onclick="location.href='index.php?page=sections&action=list&id=<?= $c->getId() ?>'">
 
-        <img src="./assets/button (1).png"
-             onclick="location.href='index.php?page=courses&action=edit&id=<?= $c->getId() ?>'">
+                    <img src="./assets/button (1).png"
+                         title="Edit"
+                         onclick="location.href='index.php?page=courses&action=edit&id=<?= $c->getId() ?>'">
 
-        <img src="./assets/button (2).png"
-             onclick="location.href='index.php?page=courses&action=destroy&id=<?= $c->getId() ?>'">
-             <a href="index.php?page=enrollment&action=store&course_id=<?= $course->getId() ?>"
-             class="btn-enroll">S'inscrire</a>
+                    <img src="./assets/button (2).png"
+                         title="Delete"
+                         onclick="location.href='index.php?page=courses&action=destroy&id=<?= $c->getId() ?>'">
 
-    </td>
-</tr>
+                    <a href="index.php?page=enrollment&action=store&course_id=<?= $c->getId() ?>"
+                       class="btn-enroll">
+                        S'inscrire
+                    </a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
 
-<?php endforeach; ?>
-
-        </table>
-
-
-
-      
-
-    </div>
-   
-
-
+</div>
 
 </body>
-
 </html>

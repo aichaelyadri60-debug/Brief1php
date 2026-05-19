@@ -15,7 +15,7 @@ class SectionController
 
     public function list()
     {
-        $courseId = (int)$_GET['id'];
+        $courseId = $_GET['id'];
         $sectiondata  = $this->repo->findByCourse($courseId);
         $course   = $this->courseRepo->findOne($courseId);
         require "./views/layout/sections/section_list.php";
@@ -23,7 +23,7 @@ class SectionController
 
     public function create()
     {
-        $courseId = (int)$_GET['id'];
+        $courseId = $_GET['id'];
         require "./views/layout/sections/sections_create.php";
     }
 
@@ -47,7 +47,7 @@ class SectionController
 
     public function edit()
     {
-        $section = $this->repo->findOne((int)$_GET['idsection']);
+        $section = $this->repo->findOne($_GET['idsection']);
         require "./views/layout/sections/Sections_edit.php";
     }
 
@@ -71,7 +71,7 @@ class SectionController
 
     public function destroy()
     {
-        $this->repo->delete((int)$_GET['idsection']);
+        $this->repo->delete($_GET['idsection']);
 
         header("Location: index.php?page=sections&id=" . $_GET['id']);
         exit;

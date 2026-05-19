@@ -41,11 +41,10 @@ class CourseController
 
             $course = new Course();
             $course->hydrate([
-                'title'        => $_POST['title'],
+                'title' => $_POST['title'],
                 'DescriptionC' => $_POST['description'],
-                'level'        => $_POST['level'],
-                'image'        => $imageName,
-                'created_at'   => date('Y-m-d')
+                'level' => $_POST['level'],
+                'image'=> $imageName
             ]);
 
             $this->repo->create($course);
@@ -57,7 +56,7 @@ class CourseController
 
     public function edit()
     {
-        $course = $this->repo->findOne((int)$_GET['id']);
+        $course = $this->repo->findOne($_GET['id']);
         require "./views/layout/courses/courses_edit.php";
     }
 
@@ -65,7 +64,7 @@ public function update()
 {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-        $id = (int)$_GET['id'];
+        $id = $_GET['id'];
 
         $existingCourse = $this->repo->findOne($id);
 
@@ -89,8 +88,7 @@ public function update()
             'title'        => $_POST['title'],
             'DescriptionC' => $_POST['description'],
             'level'        => $_POST['level'],
-            'image'        => $imageName,
-            'created_at'   => $existingCourse->getCreatedAt()
+            'image'        => $imageName
         ]);
 
         $this->repo->update($course);
@@ -104,10 +102,10 @@ public function update()
 
     public function destroy()
     {
-            $courseId = (int)$_GET['id'];
+            $courseId = $_GET['id'];
     $sectionRepo = new SectionRepository();
     $sectionRepo->deleteByCourse($courseId);
-        $this->repo->delete((int)$_GET['id']);
+        $this->repo->delete($_GET['id']);
         header("Location: index.php?page=courses");
         exit;
     }

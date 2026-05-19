@@ -20,7 +20,7 @@ abstract class BaseRepository
         return $entities;
     }
 
-    public function findOne(int $id): ?object{
+    public function findOne(int $id): object{
         $stmt =$this->pdo->prepare("SELECT * FROM {$this->table} where id =?");
         $stmt->execute([$id]);
         $result =$stmt->fetch(PDO::FETCH_ASSOC);
@@ -91,7 +91,7 @@ public function update(object $entity): bool
     public function delete(int $id): bool
     {
         $stmt = $this->pdo->prepare("DELETE FROM {$this->table} WHERE id = ?");
-        return $stmt->execute([$id]);
+        return $stmt->execute($id);
     }
 }
 

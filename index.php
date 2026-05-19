@@ -25,11 +25,11 @@ switch ($page) {
     case 'register':
         require './views/layout/auth/register.php';
         exit;
-        case 'auth':
+    case 'auth':
             $controller = new AuthController();
             $action = $action ?? 'login';
             break;
-        case 'authenticate':
+    case 'authenticate':
     $controller = new AuthController();
     $controller->authenticate();
     exit;

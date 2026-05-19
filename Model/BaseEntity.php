@@ -12,13 +12,9 @@ abstract class BaseEntity{
                 $prop->setValue($this ,$value);
             }
         }
-
-
     }
-
-
-
 }
+
 
 
 

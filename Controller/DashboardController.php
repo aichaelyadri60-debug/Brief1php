@@ -14,16 +14,16 @@ class DashboardController
 
     public function index()
     {
-        $totalCourses              = $this->repo->countCourses();
-        $totalUsers                = $this->repo->countUsers();
-        $totalInscriptions         = $this->repo->countInscriptions();
-        $mostPopularCourse         = $this->repo->mostPopularCourse();
-        $avgSections               = $this->repo->avgSectionsPerCourse();
-        $inscriptionsByCourse      = $this->repo->inscriptionsByCourse();
-        $coursesWithManySections   = $this->repo->coursesWithMoreThanFiveSections();
-        $usersThisYear             = $this->repo->usersThisYear();
+        $totalCourses = $this->repo->countCourses();
+        $totalUsers = $this->repo->countUsers();
+        $totalInscriptions = $this->repo->countInscriptions();
+        $mostPopularCourse = $this->repo->mostPopularCourse();
+        $avgSections = $this->repo->avgSectionsPerCourse();
+        $inscriptionsByCourse = $this->repo->inscriptionsByCourse();
+        $coursesWithManySections = $this->repo->coursesWithMoreThanFiveSections();
+        $usersThisYear = $this->repo->usersThisYear();
         $coursesWithoutInscription = $this->repo->coursesWithoutInscription();
-        $lastInscriptions          = $this->repo->lastInscriptions();
+        $lastInscriptions = $this->repo->lastInscriptions();
 
         require "./views/layout/dashboard/index.php";
     }

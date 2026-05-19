@@ -14,14 +14,21 @@ class EnrollmentController
 
     public function store()
     {
-        $userId   = $_SESSION['admin_id'];
-        $courseId = (int) $_GET['course_id'];
+        $userId   =  $_SESSION['admin']['id']; 
+        $courseId = $_GET['course_id'];
 
-        if (!$this->repo->isEnrolled($userId, $courseId)) {
-            $this->repo->enroll($userId, $courseId);
+        if ($this->repo->isEnrolled($userId, $courseId)) {
+            header("Location: index.php?page=courses&error=already_enrolled");
+            exit;
         }
+        $enrollment =new Enrollment;
+                $enrollment->hydrate([
+                'user_id' => $_SESSION['admin']['id'] ,
+                'course_id' =>  $_GET['course_id']
+            ]);
+        $this->repo->create($enrollment );
 
-        header("Location: index.php?page=courses");
+        header("Location: index.php?page=courses&success=enrolled");
         exit;
     }
 }

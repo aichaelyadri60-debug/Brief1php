@@ -66,7 +66,7 @@ body {
   color: #111827;
 }
 
-/* Highlight KPI */
+
 .kpi-card.highlight {
   border-left: 6px solid #2563eb;
   background: linear-gradient(135deg, #ffffff, #eff6ff);
@@ -83,18 +83,13 @@ body {
   font-size: 14px;
 }
 
-/* ===============================
-   TABLES SECTION
-================================ */
+
 .tables-section h2 {
   font-size: 20px;
   margin: 40px 0 16px;
   font-weight: 600;
 }
 
-/* ===============================
-   TABLE STYLE
-================================ */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -133,16 +128,13 @@ tbody tr:hover {
   background: #f9fafb;
 }
 
-/* Empty message row */
 tbody td[colspan] {
   text-align: center;
   color: #6b7280;
   font-style: italic;
 }
 
-/* ===============================
-   RESPONSIVE
-================================ */
+
 @media (max-width: 768px) {
   .dashboard-title {
     font-size: 22px;
